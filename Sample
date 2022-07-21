@@ -1,7 +1,42 @@
-// Time Complexity :
-// Space Complexity :
-// Did this code successfully run on Leetcode :
+// Time Complexity :O(n+m)
+// Space Complexity :O(1)
+// Did this code successfully run on Leetcode : Yes
 // Any problem you faced while coding this :
 
 
 // Your code here along with comments explaining your approach
+
+//start from end of first row. if target is greater than element go down or go left while  i j are within limits. if found return true
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        
+        
+        int i=0;
+        int j=matrix[0].length-1;
+        boolean found=false;
+        
+        if(matrix.length==0) return found;
+        
+        // if(matrix.length==1 && matrix[i][j])
+        
+        while(i>=0 && j>=0 && i<matrix.length)
+        {
+         if(target==matrix[i][j])
+         { 
+             found=true;
+             break;
+         }
+         else if(target>matrix[i][j])
+         {
+             i++;
+         }
+         else if(target<matrix[i][j])
+         {
+           j--;  
+         }
+             
+        }
+        
+        return found;
+    }
+}
